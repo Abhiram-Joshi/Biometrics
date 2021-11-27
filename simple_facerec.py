@@ -36,7 +36,7 @@ class SimpleFacerec:
 
             # Store file name and file encoding
             self.known_face_encodings.append(img_encoding)
-            self.known_face_names.append(filename)
+            self.known_face_names.append(filename[:-1])
         print("Encoding images loaded")
 
     def detect_known_faces(self, frame):

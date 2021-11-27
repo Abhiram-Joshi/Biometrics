@@ -35,9 +35,9 @@ time.sleep(1)
 total = 0
 
 # Creating a file for storing user data
-if os.path.exists("users.txt"):
-	with open("users.txt", "w") as file:
-		file.write("No registrations!")
+# if os.path.exists("users.txt"):
+	# with open("users.txt", "w") as file:
+	# 	file.write("No registrations!")
 
 # Opening the file containing the existing users in read mode
 file_read = open("users.txt", "r")

@@ -1,7 +1,4 @@
 <?xml version="1.0"?>
-<<<<<<< HEAD
-
-=======
 <!--
     Stump-based 24x24 discrete(?) adaboost frontal face detector.
     Created by Rainer Lienhart.
@@ -45,7 +42,6 @@
  or tort (including negligence or otherwise) arising in any way out of
  the use of this software, even if advised of the possibility of such damage.
 -->
->>>>>>> d53c7a371285a9409b243b48fb1f9b7c9624d066
 <opencv_storage>
 <cascade type_id="opencv-cascade-classifier"><stageType>BOOST</stageType>
   <featureType>HAAR</featureType>
@@ -33315,8 +33311,4 @@
           12 1 3 11 2.</_>
         <_>
           9 12 3 11 2.</_></rects></_></features></cascade>
-<<<<<<< HEAD
 </opencv_storage>
-=======
-</opencv_storage>
->>>>>>> d53c7a371285a9409b243b48fb1f9b7c9624d066

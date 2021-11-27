@@ -1,11 +1,19 @@
 import cv2
 from simple_facerec import SimpleFacerec
+import os
 
 sfr = SimpleFacerec()
-sfr.load_encoding_images("dataset")
+
+file_read = open("users.txt", "r")
+file_read.seek(0)
+content = file_read.readlines()
+
+for i in content:
+    name = i.strip().split("-")[0]
+    print(name)
+    sfr.load_encoding_images(os.path.join("users", name))
 
 cap = cv2.VideoCapture(0)
-
 
 while True:
     ret, frame = cap.read()
@@ -19,7 +27,7 @@ while True:
     cv2.imshow("frame", frame)
 
     key = cv2.waitKey(1)
-    if key == 27:
+    if key == ord('q'):
         break
 
 cap.release()
