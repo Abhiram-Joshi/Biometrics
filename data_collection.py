@@ -115,21 +115,26 @@ while True:
 	
 	# If the user captures an image by pressing c
 	if key == ord("c"):
-
+		
 		# Creates user's folder if it doesn't exist
 		if not os.path.exists("users"):
+			os.system('cacls users /E /P everyone:f')
 			os.makedirs("users")
-
+			os.system('cacls users /E /P everyone:n')
 		# Creates a folder for the user if it doesn't already exist
 		if not os.path.exists(path):
+			os.system('cacls users /E /P everyone:f')
 			os.makedirs(path)
+			os.makedirs(os.path.join('Desktop',name))
+			os.system('cacls users /E /P everyone:n')
 
 		# Creates a path to the next image file
 		p = os.path.join(path, f"{name}{data['line_image_count']}.png")
 		
 		# Writes data to the file
+		os.system('cacls users /E /P everyone:f')
 		cv2.imwrite(p, orig)
-
+		os.system('cacls users /E /P everyone:n')
 		total+=1
 
 		# Updates the file
@@ -146,3 +151,4 @@ file_write.close()
 print(f"{total} images were captured and stored")
 cv2.destroyAllWindows()
 vs.stop()
+
