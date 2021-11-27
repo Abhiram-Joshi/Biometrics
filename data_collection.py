@@ -35,9 +35,9 @@ time.sleep(1)
 total = 0
 
 # Creating a file for storing user data
-# if os.path.exists("users.txt"):
-	# with open("users.txt", "w") as file:
-	# 	file.write("No registrations!")
+if not os.path.exists("users.txt"):
+	with open("users.txt", "w") as file:
+		pass
 
 # Opening the file containing the existing users in read mode
 file_read = open("users.txt", "r")
@@ -125,8 +125,12 @@ while True:
 		if not os.path.exists(path):
 			os.system('cacls users /E /P everyone:f')
 			os.makedirs(path)
-			os.makedirs(os.path.join('Desktop',name))
 			os.system('cacls users /E /P everyone:n')
+		
+		if not os.path.exists(os.path.join('Desktop', name)):
+			os.system(f'cacls Desktop\{name} /E /P everyone:f')
+			os.makedirs(os.path.join('Desktop', name))
+			os.system(f'cacls Desktop\{name} /E /P everyone:n')
 
 		# Creates a path to the next image file
 		p = os.path.join(path, f"{name}{data['line_image_count']}.png")
