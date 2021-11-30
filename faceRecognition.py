@@ -26,9 +26,10 @@ while True:
     face_locations, face_name = sfr.detect_known_faces(frame)
 
     if face_name != "Unknown" and face_locations.any():
-        names.append(face_name[0])
-        pause = time()
-        os.system(f'cacls Desktop\{face_name[0]} /E /P everyone:f')
+        if face_name not in names: 
+            names.append(face_name[0])
+            pause = time()
+            os.system(f'cacls Desktop\{face_name[0]} /E /P everyone:f')
 
         # for face_loc, name in zip(face_locations, face_name):
         #     y1, x1, y2, x2 = face_loc[0], face_loc[1], face_loc[2], face_loc[3]
