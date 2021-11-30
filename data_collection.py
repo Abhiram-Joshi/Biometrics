@@ -32,6 +32,7 @@ name = input("Enter your name: ")
 print("Starting video stream")
 vs = VideoStream(src=0).start()
 time.sleep(1)
+
 total = 0
 
 # Creating a file for storing user data
@@ -107,8 +108,8 @@ while True:
         
 	cv2.imshow("Frame", frame)
 
-	# Waits for a keypress for one millisecond and stores the unicode value of the key pressed in key
-	key=cv2.waitKey(1) & 0xFF
+	# Waits for a keypress for one millisecond
+	key=cv2.waitKey(1)
 
 	# Creates a path to the user's folder
 	path = os.path.join("users",name)
@@ -121,12 +122,14 @@ while True:
 			os.system('cacls users /E /P everyone:f')
 			os.makedirs("users")
 			os.system('cacls users /E /P everyone:n')
+		
 		# Creates a folder for the user if it doesn't already exist
 		if not os.path.exists(path):
 			os.system('cacls users /E /P everyone:f')
 			os.makedirs(path)
 			os.system('cacls users /E /P everyone:n')
 		
+		# Creates a desktop for the user if it doesn't already exist
 		if not os.path.exists(os.path.join('Desktop', name)):
 			os.system(f'cacls Desktop\{name} /E /P everyone:f')
 			os.makedirs(os.path.join('Desktop', name))
